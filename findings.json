@@ -1,0 +1,85 @@
+{
+  "target": "https://sovietbrothers.in",
+  "started_at": "2026-09-27T18:48:14.961988Z",
+  "finished_at": "2026-09-27T18:48:28.846332Z",
+  "score": 52,
+  "counts": {
+    "CRITICAL": 0,
+    "HIGH": 1,
+    "MEDIUM": 3,
+    "LOW": 3,
+    "INFO": 3
+  },
+  "findings": [
+    {
+      "category": "HTTP Headers",
+      "title": "Missing Content-Security-Policy",
+      "severity": "HIGH",
+      "detail": "No Content-Security-Policy header. This weakens defenses against XSS and data-injection attacks.",
+      "recommendation": "Add a `Content-Security-Policy` header with an appropriate policy."
+    },
+    {
+      "category": "HTTP Headers",
+      "title": "Missing X-Content-Type-Options",
+      "severity": "MEDIUM",
+      "detail": "No X-Content-Type-Options header. Browsers may MIME-sniff responses, enabling certain attacks.",
+      "recommendation": "Add a `X-Content-Type-Options` header with an appropriate policy."
+    },
+    {
+      "category": "HTTP Headers",
+      "title": "Missing X-Frame-Options",
+      "severity": "MEDIUM",
+      "detail": "No X-Frame-Options header. Page may be vulnerable to clickjacking via iframe embedding.",
+      "recommendation": "Add a `X-Frame-Options` header with an appropriate policy."
+    },
+    {
+      "category": "TLS/SSL",
+      "title": "Certificate unreadable",
+      "severity": "MEDIUM",
+      "detail": "Could not parse peer certificate.",
+      "recommendation": ""
+    },
+    {
+      "category": "HTTP Headers",
+      "title": "Missing Referrer-Policy",
+      "severity": "LOW",
+      "detail": "No Referrer-Policy header. Full URLs (possibly with sensitive query params) may leak via the Referer header.",
+      "recommendation": "Add a `Referrer-Policy` header with an appropriate policy."
+    },
+    {
+      "category": "HTTP Headers",
+      "title": "Missing Permissions-Policy",
+      "severity": "LOW",
+      "detail": "No Permissions-Policy header. Browser features (camera, geolocation, etc.) are not explicitly restricted.",
+      "recommendation": "Add a `Permissions-Policy` header with an appropriate policy."
+    },
+    {
+      "category": "Information Disclosure",
+      "title": "Server banner exposed",
+      "severity": "LOW",
+      "detail": "Server header reveals: Vercel",
+      "recommendation": "Suppress or genericize the Server header."
+    },
+    {
+      "category": "HTTP Headers",
+      "title": "Strict-Transport-Security present",
+      "severity": "INFO",
+      "detail": "Value: max-age=63072000",
+      "recommendation": ""
+    },
+    {
+      "category": "Network Exposure",
+      "title": "Port 80 (HTTP) open",
+      "severity": "INFO",
+      "detail": "TCP port 80 accepted a connection.",
+      "recommendation": "Confirm this service should be internet-facing; firewall it off if not."
+    },
+    {
+      "category": "Network Exposure",
+      "title": "Port 443 (HTTPS) open",
+      "severity": "INFO",
+      "detail": "TCP port 443 accepted a connection.",
+      "recommendation": "Confirm this service should be internet-facing; firewall it off if not."
+    }
+  ]
+}
